@@ -1,13 +1,9 @@
 module.exports = function getZerosCount(number) {
-  let countZeros = 0;
+  let countZeros = 0, num = 1;
   
-  for (let i = 5; i <= number; i += 5) {
-    for (let j = 1; i >= Math.pow(5, j); ++j) {
-      if (i % Math.pow(5, j) === 0) {
-        countZeros++;
-      }
-    }
+  for (let i = 1; Math.pow(5, i) <= number; ++i) {
+    countZeros += Math.floor(number / Math.pow(5, i));
   }
-
+ 
   return countZeros;
 }
